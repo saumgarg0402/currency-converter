@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { initializeIcons } from '@fluentui/font-icons-mdl2';
+import CurrencyConverter from './components/CurrencyConverter';
+import { Stack } from '@fluentui/react/lib/Stack';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
+
+  initializeIcons();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack verticalAlign="space-between" styles={{ root: { height: '100%'}}}>
+      <Header/>
+      <Stack horizontal={true} horizontalAlign="center">
+          <Stack styles={{ root: { width: 700, height: 600, borderRadius: 5, border: "1px solid #c8c6c4"}}} horizontal={true} horizontalAlign="center">
+            <CurrencyConverter />
+          </Stack>
+      </Stack>
+      <Footer/>
+    </Stack>
   );
 }
 
